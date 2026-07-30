@@ -15,62 +15,71 @@
 
 ---
 
-> ### 💭 *"High performance is the standard. Cloud scale is the requirement."*
+> ### 💭 *"Local AI is the mission. MAX is the weapon. Your hardware is enough."*
 
 ---
 
-## 🚀 Featured: MXFrame — GPU DataFrames Without CUDA Lock-In
+## 🚀 Featured: MXFrame — GPU DataFrames Without the CUDA Tax
 
-> **A DataFrame query engine with Polars-style ergonomics and Mojo AOT kernels — runs on NVIDIA, AMD, and Apple Silicon. No CUDA. No JIT tax.**
+> **Polars-style ergonomics. Mojo AOT kernels. One codebase → NVIDIA, AMD, and Apple Silicon.**
+> No CUDA lock-in. No JIT at query time. Just pre-compiled speed.
 
-### 🔥 What makes it different
+<div align="center">
+
+### ⚡ `0.7 ms` — a 6-table join over **10 million rows** *(TPC-H Q9)*
+### That's **128× faster than Polars.** On the CPU.
+
+</div>
+
+### 🔥 Why it hits different
 
 |  | pandas | Polars | cuDF | **🚀 MXFrame** |
 | :--- | :---: | :---: | :---: | :---: |
-| 🎮 GPU support | ❌ | ❌ | NVIDIA only | ✅ **Any GPU** |
-| ⚙️ Compiled kernels | ❌ | Rust | CUDA | ✅ **Mojo AOT** |
-| 📦 Install | pip | pip | CUDA stack | `pixi install` |
-| 🌐 Cross-vendor | ❌ | ❌ | ❌ | ✅ NVIDIA / AMD / Apple |
+| 🎮 GPU support | ❌ | ❌ | NVIDIA only | ✅ **NVIDIA / AMD / Apple** |
+| ⚙️ Kernels | ❌ | Rust | CUDA JIT | ✅ **Mojo AOT** (compiled once) |
+| 🐍 SQL frontend | ❌ | ✅ | ✅ | ✅ `sql("SELECT ...")` |
+| 📦 Install | pip | pip | full CUDA stack | ✅ `pixi install` |
+| 🧬 Written in | C | Rust | C++/CUDA | ✅ **93% Mojo** |
 
-### 📊 TPC-H Headline Wins (10M rows, vs Polars)
+### 📊 Scoreboard — All 22 TPC-H Queries vs Polars
 
 <table>
 <tr>
-<td align="center" width="20%">
+<td align="center" width="25%">
 
-### 🥇 **128×**
-**Q9** — Product Profit
-*(6-table join)*
-
-</td>
-<td align="center" width="20%">
-
-### 🥈 **89×**
-**Q12** — Join + Agg
+### 🏆 **21 / 22**
+CPU wins @ 1M rows
 
 </td>
-<td align="center" width="20%">
+<td align="center" width="25%">
 
-### 🥉 **42×**
-**Q7** — Shipping Volume
-
-</td>
-<td align="center" width="20%">
-
-### ⚡ **32×**
-**Q8** — Market Share
+### 🏆 **18 / 22**
+CPU wins @ 10M rows
 
 </td>
-<td align="center" width="20%">
+<td align="center" width="25%">
 
-### 🎯 **22×**
-**Q5** — Multi-join
+### 🎮 **16 / 22**
+GPU wins @ 1M rows
+
+</td>
+<td align="center" width="25%">
+
+### 🎮 **15 / 22**
+GPU wins @ 10M rows
 
 </td>
 </tr>
 </table>
 
-> 🏆 MXFrame CPU beats Polars on **18/22** TPC-H queries · GPU wins on **15/22** · Reproducible benchmark on RTX 3090 + AMD 12-core
+### 💥 Headline speedups @ 10M rows (vs Polars, warm median of 3)
+
+| 🥇 **128×** | 🥈 **89×** | 🥉 **42×** | ⚡ **32×** | 🎯 **24×** | 🔥 **22×** |
+| :---: | :---: | :---: | :---: | :---: | :---: |
+| **Q9** · 6-table join | **Q12** · join + agg | **Q7** · shipping vol | **Q8** · market share | **Q17** · small-qty | **Q5** · multi-join |
+
+> 🧪 **Fully reproducible** — official TPC-H data via DuckDB `dbgen`, benchmark CSVs committed in-repo, one script to rerun · RTX 3090 + AMD 12-core
+> ✅ All 22 queries verified correct against Polars output · 📦 Live on PyPI
 
 ### ➡️ **[Explore mxframe →](https://github.com/abhisheksreesaila/mxframe)**
 
@@ -89,11 +98,11 @@
 </td>
 <td width="60%" valign="middle">
 
-A weekly deep-dive into the language and runtime powering the next wave of AI compute. **Mojo, MAX, GPU kernels, and the engineering that makes performance look easy.**
+The weekly deep-dive into the language and runtime powering the next wave of AI compute. **Mojo, MAX, GPU kernels — and the engineering that makes 128× look easy.**
 
 🔥 New episode every **Monday**
-🧠 From first principles → production patterns
-⚡ The same Mojo that powers MXFrame, demystified
+🧠 First principles → production patterns
+⚡ The exact same Mojo behind MXFrame's benchmarks, demystified on camera
 
 </td>
 </tr>
@@ -110,7 +119,7 @@ A weekly deep-dive into the language and runtime powering the next wave of AI co
 ### 🔥 Mojo GPU Tutorials
 **[mojo-gpu-tutorials →](https://github.com/abhisheksreesaila/mojo-gpu-tutorials)**
 
-The code companion to the YouTube channel. Hands-on Mojo & Modular MAX walkthroughs.
+The code companion to the channel. Hands-on Mojo & Modular MAX walkthroughs — clone it, run it, break it, learn it.
 
 </td>
 <td width="50%" valign="top">
@@ -118,7 +127,7 @@ The code companion to the YouTube channel. Hands-on Mojo & Modular MAX walkthrou
 ### ☁️ Azure Architecture
 **Solutions Architect Expert (Certified)**
 
-Enterprise-scale infrastructure design. Identity, networking, governance — the load-bearing stuff.
+Enterprise-scale infrastructure design. Identity, networking, governance — the load-bearing stuff nobody notices until it's missing.
 
 </td>
 </tr>
@@ -128,7 +137,7 @@ Enterprise-scale infrastructure design. Identity, networking, governance — the
 ### ⚡ FastHTML Ecosystem
 **[fh-saas →](https://github.com/abhisheksreesaila/fh-saas)** · **[fh-matui →](https://github.com/abhisheksreesaila/fh-matui)**
 
-Production SaaS patterns and Material UI components. Hypermedia-first, no build step.
+Production SaaS patterns and Material UI components. Hypermedia-first, zero build step, ship the same day.
 
 </td>
 <td width="50%" valign="top">
@@ -136,7 +145,7 @@ Production SaaS patterns and Material UI components. Hypermedia-first, no build 
 ### 🏎️ Self-Driving Cars
 **[Self-Driving Car Engineer →](https://github.com/abhisheksreesaila/Udacity-Self-Driving-Car-Engineer)**
 
-Computer vision, sensor fusion, path planning. Where the cloud meets the road.
+Computer vision, sensor fusion, path planning. Where the cloud meets the road — literally.
 
 </td>
 </tr>
@@ -188,6 +197,6 @@ graph LR
 [![GitHub](https://img.shields.io/badge/GitHub-abhisheksreesaila-181717?style=flat-square&logo=github)](https://github.com/abhisheksreesaila)
 [![YouTube](https://img.shields.io/badge/YouTube-Mojo_Monday_AI-FF0000?style=flat-square&logo=youtube&logoColor=white)](https://www.youtube.com/@mojomondayai)
 
-<sub>⭐ If mxframe is useful, a star helps it find the people who need it. ▶️ If Mojo Monday teaches you something, hit subscribe.</sub>
+<sub>⭐ If mxframe saved you milliseconds (or hours), a star helps it find the people who need it. ▶️ If Mojo Monday taught you something, hit subscribe.</sub>
 
 </div>
