@@ -128,27 +128,37 @@ def hero():
 # ---------- a product card: its mark, its job, one line, one proof; a band of its colour sloshing along the bottom ----------
 def card(k, name, role, lines, proof, proof_big=None, w=640, h=330, delay=0):
     c = COL[k]
-    css = f".wv{{animation:drift 9s linear infinite}} .wv2{{animation:drift 13s linear infinite reverse}} .lvl{{animation:lvl 1.8s {SPRING} {delay+.2}s both}} @keyframes lvl{{from{{transform:translateY(14px)}}to{{transform:none}}}}"
-    txt = "".join(f"<text x='36' y='{202+i*25}' font-size='17' style='fill:{INK2}'>{l}</text>" for i, l in enumerate(lines))
+    lite = "#" + "".join(f"{int(c[i:i+2], 16) + (255 - int(c[i:i+2], 16)) * 45 // 100:02x}" for i in (1, 3, 5))
+    css = (f".wv{{animation:drift2 4.5s linear infinite}} .wv2{{animation:drift2 7s linear infinite reverse}} .hue{{animation:hue 9s linear infinite}}"
+           f" .fill{{animation:fill 2s {SPRING} {delay+.3}s both}} .b{{animation:bubble var(--t,3s) cubic-bezier(.3,.6,.4,1) var(--d) infinite;opacity:0}}"
+           f" @keyframes drift2{{to{{transform:translateX(-200px)}}}} @keyframes hue{{to{{transform:translateX(-400px)}}}} @keyframes fill{{from{{transform:translateY(12px)}}to{{transform:none}}}}")
+    txt = "".join(f"<text x='36' y='{214+i*24}' font-size='17' style='fill:{INK2}'>{l}</text>" for i, l in enumerate(lines))
     big = (f"<text x='{w-36}' y='64' font-size='34' font-weight='800' letter-spacing='-1.2' text-anchor='end' style='fill:{c}'>{proof_big}</text>") if proof_big else ""
+    ny, nm = 180, f"x='33' y='180' font-size='54' font-weight='800' letter-spacing='-2.6'"
+    tw = len(name) * 30   # rough name width, to spread the bubbles over it
+    bubbles = "".join(f"<circle class='b' cx='{36 + tw * f:.0f}' cy='{ny-4}' r='{r}' fill='{c}' style='--d:{d}s;--t:{t}s;--h:-{hh}px'/>"
+                      for f, r, d, t, hh in [(.12, 2.5, delay+.6, 2.8, 34), (.38, 2, delay+1.7, 2.4, 28), (.62, 3, delay+1.1, 3.1, 36), (.86, 2, delay+2.3, 2.6, 26)])
     body = f"""
-    <defs><clipPath id='c'><rect width='{w}' height='{h}' rx='24'/></clipPath></defs>
-    <g clip-path='url(#c)'>
-      <rect width='{w}' height='{h}' fill='{S1}'/>
-      <g class='lvl'>
-        <g transform='translate(0 {h-30})'><path class='wv2' d='{wave(w, 6, 400)}' fill='{c}' fill-opacity='.10' transform='translate(0 -6)'/></g>
-        <g transform='translate(0 {h-22})'><path class='wv' d='{wave(w, 7, 400)}' fill='{c}' fill-opacity='.22'/></g>
-      </g>
-    </g>
+    <defs>
+      <linearGradient id='g' x1='0' x2='400' gradientUnits='userSpaceOnUse' spreadMethod='repeat'><stop offset='0' stop-color='{c}'/><stop offset='.5' stop-color='{lite}'/><stop offset='1' stop-color='{c}'/></linearGradient>
+      <clipPath id='t'><text {nm}>{name}</text></clipPath>
+      <mask id='liq'><g class='fill'>
+        <g transform='translate(0 {ny-20})'><path class='wv2' d='{wave(w, 5, 200)}' fill='#fff' fill-opacity='.45'/></g>
+        <g transform='translate(0 {ny-15})'><path class='wv' d='{wave(w, 6, 200)}' fill='#fff'/></g>
+      </g></mask>
+    </defs>
+    <rect width='{w}' height='{h}' rx='24' fill='{S1}'/>
     <rect x='.5' y='.5' width='{w-1}' height='{h-1}' rx='23.5' fill='none' stroke='{LINE}'/>
     <g class='pop' style='animation-delay:{delay}s;transform-origin:62px 62px'>{mark(k, 36, 36, 52, c)}</g>
     {big}
     <g class='rise' style='animation-delay:{delay+.1}s'>
-      <text class='m' x='36' y='128' font-size='12.5' letter-spacing='2' style='fill:{c}'>{role.upper()}</text>
-      <text x='34' y='168' font-size='38' font-weight='750' letter-spacing='-1.4'>{name}</text>
+      <text class='m' x='36' y='124' font-size='12.5' letter-spacing='2' style='fill:{c}'>{role.upper()}</text>
+      <g clip-path='url(#t)'><rect width='{w}' height='{h}' fill='{S2}'/><g mask='url(#liq)'><rect class='hue' width='{w+800}' height='{h}' fill='url(#g)'/></g></g>
+      <text {nm} style='fill:none;stroke:#fff;stroke-opacity:.14;stroke-width:1'>{name}</text>
+      {bubbles}
       {txt}
     </g>
-    <text class='m rise' x='36' y='{h-40}' font-size='13' style='fill:{INK};animation-delay:{delay+.2}s'>{proof}</text>
+    <text class='m rise' x='36' y='{h-36}' font-size='13' style='fill:{INK};animation-delay:{delay+.2}s'>{proof}</text>
     """
     write(f"{name}.svg", svg(w, h, body, css, f"{name}: {role}"))
 
