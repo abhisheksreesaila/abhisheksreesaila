@@ -1,13 +1,17 @@
-# Abhishek Sreesaila
+<a href="https://abhisheksreesaila.github.io/omxlabs/"><img src="assets/hero.svg" width="100%" alt="omxlabs: every kind of data, one GPU, built for people and agents. Abhishek Sreesaila, solo founder. The best personal AI agents, running locally on hardware you already own."></a>
 
-🧭 **Mission:** build the best personal AI agents, running locally on hardware you already own.
+<img src="assets/label-apps.svg" width="100%" alt="01 · The apps">
 
-| Project | What it is | Built with |
-| :--- | :--- | :--- |
-| **[MXConsole](https://github.com/abhisheksreesaila/mxstudio)** | Local AI in one command. Any model, an OpenAI-compatible endpoint, on your own GPU. | Mojo, MAX |
-| **[MXFrame](https://github.com/abhisheksreesaila/mxframe)** | GPU-native dataframes. One codebase for NVIDIA, AMD and Apple Silicon. | Mojo, MAX |
-| **[MXApp](https://github.com/abhisheksreesaila/mxapp)** | A universal language for GUI development.| Mojo |
-| **[fh-saas](https://github.com/abhisheksreesaila/fh-saas)** | FastHTML for SaaS apps. Login, billing and tenants in plain Python. | Python, FastHTML |
-| **[PersonalNote](https://github.com/abhisheksreesaila/personalnote)** | A personal notebook with a modern interface and real mind maps. | Python, FastHTML |
-| **[GitAway](https://github.com/abhisheksreesaila/travelos)** | Plan a trip, share it, let friends fork it. | Python, FastHTML |
-| **[Abode](https://github.com/abhisheksreesaila/abode)** | One home for all your coding agents, with local voice. A T3 Code fork. | TypeScript |
+<a href="https://github.com/abhisheksreesaila/omxcode"><img src="assets/omxplorer.svg" width="49%" alt="omxplorer: ask your data in a sentence"></a>&nbsp;<a href="https://github.com/abhisheksreesaila/mxstudio"><img src="assets/omxconsole.svg" width="49%" alt="omxconsole: your GPU as a private, OpenAI-compatible model server"></a>
+
+<img src="assets/label-tech.svg" width="100%" alt="02 · Under the hood">
+
+<a href="https://github.com/abhisheksreesaila/omxcore"><img src="assets/omxcore.svg" width="32.4%" alt="omxcore: SQL on your CPU and GPU"></a>&nbsp;<a href="https://github.com/abhisheksreesaila/omxcode"><img src="assets/omxcode.svg" width="32.4%" alt="omxcode: write an app once in Mojo"></a>&nbsp;<a href="https://github.com/abhisheksreesaila/omxqua"><img src="assets/omxqua.svg" width="32.4%" alt="omxqua: the design language"></a>
+
+<img src="assets/label-also.svg" width="100%" alt="03 · Also building">
+
+<a href="https://github.com/abhisheksreesaila/fh-saas"><img src="assets/fh-saas.svg" width="49%" alt="fh-saas: FastHTML for SaaS apps"></a>&nbsp;<a href="https://github.com/abhisheksreesaila/personalnote"><img src="assets/personalnote.svg" width="49%" alt="PersonalNote: a personal notebook with real mind maps"></a>
+
+<a href="https://github.com/abhisheksreesaila/travelos"><img src="assets/gitaway.svg" width="49%" alt="GitAway: plan a trip, share it, let friends fork it"></a>&nbsp;<a href="https://github.com/abhisheksreesaila/abode"><img src="assets/abode.svg" width="49%" alt="Abode: one home for all your coding agents"></a>
+
+<p align="center"><sub><a href="https://abhisheksreesaila.github.io/omxlabs/">omxlabs</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@mojomondayai">Mojo Monday on YouTube</a> &nbsp;·&nbsp; every number comes from a script, on one RTX 3090</sub></p>
