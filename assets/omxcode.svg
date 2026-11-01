@@ -7,25 +7,22 @@ text{font-family:G,system-ui,sans-serif;fill:#ededef} .m{font-family:GM,ui-monos
 @keyframes bob{50%{transform:translateY(-6px)}}
 @keyframes bubble{0%{opacity:0;transform:translateY(0)}15%{opacity:1}80%{opacity:.9}100%{opacity:0;transform:translateY(var(--h,-120px))}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
-.wv{animation:drift2 4.5s linear infinite} .wv2{animation:drift2 7s linear infinite reverse} .hue{animation:hue 9s linear infinite} .fill{animation:fill 2s cubic-bezier(.34,1.56,.64,1) 0.6s both} .b{animation:bubble var(--t,3s) cubic-bezier(.3,.6,.4,1) var(--d) infinite;opacity:0} @keyframes drift2{to{transform:translateX(-200px)}} @keyframes hue{to{transform:translateX(-400px)}} @keyframes fill{from{transform:translateY(12px)}to{transform:none}}</style>
-    <defs>
-      <linearGradient id='g' x1='0' x2='400' gradientUnits='userSpaceOnUse' spreadMethod='repeat'><stop offset='0' stop-color='#ff5d6c'/><stop offset='.5' stop-color='#ffa5ae'/><stop offset='1' stop-color='#ff5d6c'/></linearGradient>
-      <clipPath id='t'><text x='33' y='180' font-size='54' font-weight='800' letter-spacing='-2.6'>omxcode</text></clipPath>
-      <mask id='liq'><g class='fill'>
-        <g transform='translate(0 160)'><path class='wv2' d='M0 0 q50.0 -5 100.0 0 t100.0 0 q50.0 -5 100.0 0 t100.0 0 q50.0 -5 100.0 0 t100.0 0 q50.0 -5 100.0 0 t100.0 0 q50.0 -5 100.0 0 t100.0 0 V600 H0 Z' fill='#fff' fill-opacity='.45'/></g>
-        <g transform='translate(0 165)'><path class='wv' d='M0 0 q50.0 -6 100.0 0 t100.0 0 q50.0 -6 100.0 0 t100.0 0 q50.0 -6 100.0 0 t100.0 0 q50.0 -6 100.0 0 t100.0 0 q50.0 -6 100.0 0 t100.0 0 V600 H0 Z' fill='#fff'/></g>
-      </g></mask>
-    </defs>
-    <rect width='420' height='328' rx='24' fill='#0f0f11'/>
+.wv{animation:drift 9s linear infinite} .wv2{animation:drift 13s linear infinite reverse} .lvl{animation:lvl 1.8s cubic-bezier(.34,1.56,.64,1) 0.5s both} @keyframes lvl{from{transform:translateY(14px)}to{transform:none}}</style>
+    <defs><clipPath id='c'><rect width='420' height='328' rx='24'/></clipPath></defs>
+    <g clip-path='url(#c)'>
+      <rect width='420' height='328' fill='#0f0f11'/>
+      <g class='lvl'>
+        <g transform='translate(0 298)'><path class='wv2' d='M0 0 q100.0 -6 200.0 0 t200.0 0 q100.0 -6 200.0 0 t200.0 0 q100.0 -6 200.0 0 t200.0 0 q100.0 -6 200.0 0 t200.0 0 V600 H0 Z' fill='#ff5d6c' fill-opacity='.10' transform='translate(0 -6)'/></g>
+        <g transform='translate(0 306)'><path class='wv' d='M0 0 q100.0 -7 200.0 0 t200.0 0 q100.0 -7 200.0 0 t200.0 0 q100.0 -7 200.0 0 t200.0 0 q100.0 -7 200.0 0 t200.0 0 V600 H0 Z' fill='#ff5d6c' fill-opacity='.22'/></g>
+      </g>
+    </g>
     <rect x='.5' y='.5' width='419' height='327' rx='23.5' fill='none' stroke='#ffffff17'/>
     <g class='pop' style='animation-delay:0.3s;transform-origin:62px 62px'><g transform='translate(36 36)'><g class='' style='transform-origin:26.0px 26.0px'><rect width='52' height='52' rx='15.6' fill='#ff5d6c' fill-opacity='0.12' stroke='#ff5d6c' stroke-opacity='0.55' stroke-width='1.5'/><g transform='translate(9.88 9.88) scale(1.3433)' fill='none' stroke='#ff5d6c' color='#ff5d6c' stroke-width='1.9' stroke-linecap='round' stroke-linejoin='round'><path d='m18 16 4-4-4-4'/><path d='m6 8-4 4 4 4'/><path d='m14.5 4-5 16'/></g></g></g></g>
     
     <g class='rise' style='animation-delay:0.4s'>
-      <text class='m' x='36' y='124' font-size='12.5' letter-spacing='2' style='fill:#ff5d6c'>THE FRAMEWORK</text>
-      <g clip-path='url(#t)'><rect width='420' height='328' fill='#18181b'/><g mask='url(#liq)'><rect class='hue' width='1220' height='328' fill='url(#g)'/></g></g>
-      <text x='33' y='180' font-size='54' font-weight='800' letter-spacing='-2.6' style='fill:none;stroke:#fff;stroke-opacity:.14;stroke-width:1'>omxcode</text>
-      <circle class='b' cx='61' cy='176' r='2.5' fill='#ff5d6c' style='--d:0.8999999999999999s;--t:2.8s;--h:-34px'/><circle class='b' cx='116' cy='176' r='2' fill='#ff5d6c' style='--d:2.0s;--t:2.4s;--h:-28px'/><circle class='b' cx='166' cy='176' r='3' fill='#ff5d6c' style='--d:1.4000000000000001s;--t:3.1s;--h:-36px'/><circle class='b' cx='217' cy='176' r='2' fill='#ff5d6c' style='--d:2.5999999999999996s;--t:2.6s;--h:-26px'/>
-      <text x='36' y='214' font-size='17' style='fill:#a1a1aa'>Write an app once in Mojo: native</text><text x='36' y='238' font-size='17' style='fill:#a1a1aa'>on Linux, the web and the Mac,</text><text x='36' y='262' font-size='17' style='fill:#a1a1aa'>and an agent can drive it.</text>
+      <text class='m' x='36' y='128' font-size='12.5' letter-spacing='2' style='fill:#ff5d6c'>THE FRAMEWORK</text>
+      <text x='34' y='168' font-size='38' font-weight='750' letter-spacing='-1.4'>omxcode</text>
+      <text x='36' y='202' font-size='17' style='fill:#a1a1aa'>Write an app once in Mojo: native</text><text x='36' y='227' font-size='17' style='fill:#a1a1aa'>on Linux, the web and the Mac,</text><text x='36' y='252' font-size='17' style='fill:#a1a1aa'>and an agent can drive it.</text>
     </g>
-    <text class='m rise' x='36' y='292' font-size='13' style='fill:#ededef;animation-delay:0.5s'>Linux · Web · Mac · phones next</text>
+    <text class='m rise' x='36' y='288' font-size='13' style='fill:#ededef;animation-delay:0.5s'>Linux · Web · Mac · phones next</text>
     </svg>
