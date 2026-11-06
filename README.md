@@ -14,4 +14,8 @@
 
 <a href="https://github.com/abhisheksreesaila/travelos"><img src="assets/gitaway.svg" width="49%" alt="GitAway: plan a trip, share it, let friends fork it"></a>&nbsp;<a href="https://github.com/abhisheksreesaila/abode"><img src="assets/abode.svg" width="49%" alt="Abode: one home for all your coding agents"></a>
 
+<img src="assets/label-research.svg" width="100%" alt="04 · Research">
+
+<a href="https://abhisheksreesaila.github.io/omxpert-dispatch/"><img src="assets/omxpert.svg" width="100%" alt="omxpert dispatch, an omxlabs research project: learn which experts of a mixture-of-experts model your work needs, and load only those. gpt-oss-120b on a 16 GB Mac."></a>
+
 <p align="center"><sub><a href="https://abhisheksreesaila.github.io/omxlabs/">omxlabs</a> &nbsp;·&nbsp; <a href="https://www.youtube.com/@mojomondayai">Mojo Monday on YouTube</a> &nbsp;·&nbsp; every number comes from a script, on one RTX 3090</sub></p>

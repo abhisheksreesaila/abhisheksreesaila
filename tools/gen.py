@@ -24,6 +24,7 @@ text{{font-family:G,system-ui,sans-serif;fill:{INK}}} .m{{font-family:GM,ui-mono
 """
 
 ICONS = {
+  "pert": "<rect x='3' y='3' width='5' height='5' rx='1' fill='currentColor'/><rect x='9.5' y='3' width='5' height='5' rx='1'/><rect x='16' y='3' width='5' height='5' rx='1'/><rect x='3' y='9.5' width='5' height='5' rx='1'/><rect x='9.5' y='9.5' width='5' height='5' rx='1'/><rect x='16' y='9.5' width='5' height='5' rx='1' fill='currentColor'/><rect x='3' y='16' width='5' height='5' rx='1'/><rect x='9.5' y='16' width='5' height='5' rx='1' fill='currentColor'/><rect x='16' y='16' width='5' height='5' rx='1'/>",
   "plorer": "<circle cx='12' cy='12' r='10'/><path d='m16.24 7.76-1.804 5.411a2 2 0 0 1-1.265 1.265L7.76 16.24l1.804-5.411a2 2 0 0 1 1.265-1.265z'/>",
   "core": "<path d='M12 20a8 8 0 1 0 0-16 8 8 0 0 0 0 16Z'/><path d='M12 14a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z'/><path d='M12 2v2'/><path d='M12 22v-2'/><path d='m17 20.66-1-1.73'/><path d='M11 10.27 7 3.34'/><path d='m20.66 17-1.73-1'/><path d='m3.34 7 1.73 1'/><path d='M14 12h8'/><path d='M2 12h2'/><path d='m20.66 7-1.73 1'/><path d='m3.34 17 1.73-1'/><path d='m17 3.34-1 1.73'/><path d='m11 13.73-4 6.93'/>",
   "code": "<path d='m18 16 4-4-4-4'/><path d='m6 8-4 4 4 4'/><path d='m14.5 4-5 16'/>",
@@ -35,7 +36,7 @@ ICONS = {
   "map": "<path d='M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z'/><path d='M15 5.764v15'/><path d='M9 3.236v15'/>",
   "house": "<path d='M15 21v-8a1 1 0 0 0-1-1h-4a1 1 0 0 0-1 1v8'/><path d='M3 10a2 2 0 0 1 .709-1.528l7-5.999a2 2 0 0 1 2.582 0l7 5.999A2 2 0 0 1 21 10v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z'/>",
 }
-COL = {"plorer": "#3ccf6e", "console": "#ff9f40", "core": "#4aa8ff", "code": "#ff5d6c", "qua": "#c084fc", "labs": INK}
+COL = {"plorer": "#3ccf6e", "console": "#ff9f40", "core": "#4aa8ff", "code": "#ff5d6c", "qua": "#c084fc", "pert": "#f5c451", "labs": INK}
 ORDER = ["plorer", "console", "core", "code", "qua"]
 
 
@@ -153,6 +154,50 @@ def card(k, name, role, lines, proof, proof_big=None, w=640, h=330, delay=0):
     write(f"{name}.svg", svg(w, h, body, css, f"{name}: {role}"))
 
 
+# ---------- a research card: wide, the project's colour, and the learner at work (cells warm up as it reads, then lock: GPU, RAM) ----------
+def research(k, name, lines, proof, w=1280, h=328):
+    import random
+    c, ram = COL[k], "#8ab4ff"
+    rnd = random.Random(7)
+    cols, rows, cs, gap, x0, y0 = 26, 6, 18, 6, 620, 58
+    core = rnd.sample(range(cols * rows), 11)
+    near = sorted({c2 + d for c2 in core for d in (1, -1, cols, -cols) if 0 <= c2 + d < cols * rows and c2 + d not in core})
+    near = rnd.sample(near, 14)
+    noise = rnd.sample([i for i in range(cols * rows) if i not in core and i not in near], 20)
+    css = (f".c{{fill:{S2}}} .lit{{animation:learn 6s {SETTLE} infinite}} .nb{{animation:learnb 6s {SETTLE} infinite}} .nz{{animation:noise 6s linear infinite}}"
+           f"@keyframes learn{{0%,8%{{fill:{S2}}}45%{{fill:{c};fill-opacity:.55}}60%,88%{{fill:{c};fill-opacity:1}}100%{{fill:{S2}}}}}"
+           f"@keyframes learnb{{0%,8%{{fill:{S2}}}45%{{fill:{c};fill-opacity:.3}}60%,88%{{fill:{ram};fill-opacity:.8}}100%{{fill:{S2}}}}}"
+           f"@keyframes noise{{0%,100%{{fill:{S2}}}30%{{fill:{c};fill-opacity:.18}}55%{{fill:{S2}}}}}"
+           f".ph1{{animation:ph1 6s linear infinite}} .ph2{{animation:ph2 6s linear infinite}}"
+           f"@keyframes ph1{{0%,52%{{opacity:1}}56%,100%{{opacity:0}}}} @keyframes ph2{{0%,52%{{opacity:0}}56%,92%{{opacity:1}}100%{{opacity:0}}}}")
+    cells = []
+    for i in range(cols * rows):
+        x, y = x0 + (i % cols) * (cs + gap), y0 + (i // cols) * (cs + gap)
+        cl, d = ("c lit", rnd.uniform(0, .5)) if i in core else ("c nb", rnd.uniform(0, .5)) if i in near else ("c nz", rnd.uniform(0, 2.5)) if i in noise else ("c", None)
+        cells.append(f"<rect class='{cl}'{f' style=\'animation-delay:{d:.2f}s\'' if d is not None else ''} x='{x}' y='{y}' width='{cs}' height='{cs}' rx='4'/>")
+    gy = y0 + rows * (cs + gap) + 22
+    txt = "".join(f"<text x='36' y='{186+i*25}' font-size='17' style='fill:{INK2}'>{l}</text>" for i, l in enumerate(lines))
+    key = (f"<g transform='translate({x0} {gy+20})'><rect width='12' height='12' rx='3' fill='{c}'/><text class='m' x='18' y='10.5' font-size='12' style='fill:{INK2}'>GPU</text>"
+           f"<rect x='70' width='12' height='12' rx='3' fill='{ram}' fill-opacity='.8'/><text class='m' x='88' y='10.5' font-size='12' style='fill:{INK2}'>RAM</text>"
+           f"<rect x='140' width='12' height='12' rx='3' fill='{S2}' stroke='#3a3a3e'/><text class='m' x='158' y='10.5' font-size='12' style='fill:{INK2}'>SSD</text></g>")
+    body = f"""
+    <rect width='{w}' height='{h}' rx='24' fill='{S1}'/><rect x='.5' y='.5' width='{w-1}' height='{h-1}' rx='23.5' fill='none' stroke='{LINE}'/>
+    <g class='pop' style='transform-origin:62px 62px'>{mark(k, 36, 36, 52, c)}</g>
+    <g class='rise' style='animation-delay:.1s'>
+      <text class='m' x='106' y='58' font-size='12.5' letter-spacing='2' style='fill:{c}'>OMXLABS RESEARCH PROJECT</text>
+      <text class='m' x='106' y='82' font-size='13' style='fill:{INK3}'>status: research, not a product</text>
+      <text x='34' y='150' font-size='40' font-weight='750' letter-spacing='-1.4'>{name}</text>
+      {txt}
+    </g>
+    <text class='m rise' x='36' y='{h-40}' font-size='13' style='fill:{INK};animation-delay:.2s'>{proof}</text>
+    {''.join(cells)}
+    <text class='m ph1' x='{x0}' y='{gy}' font-size='12.5' style='fill:{INK3}'>THE LEARNER · reading your sessions, counting experts</text>
+    <text class='m ph2' x='{x0}' y='{gy}' font-size='12.5' style='fill:{c}'>PREDICTED · core on the GPU, neighbours in RAM</text>
+    {key}
+    """
+    write(f"{name.split()[0]}.svg", svg(w, h, body, css, f"{name}: an omxlabs research project. Learn which experts of a mixture-of-experts model your work needs, and load only those."))
+
+
 # ---------- the second seat: the same card, quieter (no colour, no liquid) ----------
 def side(icon, name, tag, line, w=640, h=132):
     body = f"""
@@ -185,3 +230,5 @@ side("house", "Abode", "TypeScript", "One home for all your coding agents, with 
 label("label-apps.svg", "01", "The apps", "What you open. Both run on the GPU you already own.")
 label("label-tech.svg", "02", "Under the hood", "Three technologies, all in Mojo, each usable on its own.")
 label("label-also.svg", "03", "Also building", "Python and TypeScript, for the web.")
+label("label-research.svg", "04", "Research", "Experiments, written up with what worked and what didn't.")
+research("pert", "omxpert dispatch", ["Only the experts you need. Learn which experts of a", "mixture-of-experts model your work uses, predict them,", "load only those. gpt-oss-120b on a 16 GB Mac, unquantized."], "1.04 → 2.96 tok/s · +11 pts personal profile · llama.cpp patch · MIT")
