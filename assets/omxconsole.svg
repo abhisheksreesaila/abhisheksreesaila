@@ -22,7 +22,7 @@ text{font-family:G,system-ui,sans-serif;fill:#ededef} .m{font-family:GM,ui-monos
     <g class='rise' style='animation-delay:0.2s'>
       <text class='m' x='36' y='128' font-size='12.5' letter-spacing='2' style='fill:#ff9f40'>APP · LOCAL AI</text>
       <text x='34' y='168' font-size='38' font-weight='750' letter-spacing='-1.4'>omxconsole</text>
-      <text x='36' y='202' font-size='17' style='fill:#a1a1aa'>One command turns your GPU into a private,</text><text x='36' y='227' font-size='17' style='fill:#a1a1aa'>OpenAI-compatible model server: the AI</text><text x='36' y='252' font-size='17' style='fill:#a1a1aa'>supplier for every app.</text>
+      <text x='36' y='202' font-size='17' style='fill:#a1a1aa'>Your GPU as a private, OpenAI-compatible</text><text x='36' y='227' font-size='17' style='fill:#a1a1aa'>model server, rebuilt in Mojo with omxcode:</text><text x='36' y='252' font-size='17' style='fill:#a1a1aa'>the AI supplier for every app.</text>
     </g>
-    <text class='m rise' x='36' y='290' font-size='13' style='fill:#ededef;animation-delay:0.30000000000000004s'>any model · one endpoint · Mojo + MAX</text>
+    <text class='m rise' x='36' y='290' font-size='13' style='fill:#ededef;animation-delay:0.30000000000000004s'>written in omxcode · building now</text>
     </svg>

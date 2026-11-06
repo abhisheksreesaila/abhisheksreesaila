@@ -219,7 +219,7 @@ def label(file, num, text, sub):
 
 hero()
 card("plorer", "omxplorer", "app · data", ["Ask your data in a sentence: sheets, charts, video", "and documents on one GPU. Every button is a tool", "an agent can call."], "100M rows · a filter to pixels in 30 ms", "30 ms", delay=0)
-card("console", "omxconsole", "app · local AI", ["One command turns your GPU into a private,", "OpenAI-compatible model server: the AI", "supplier for every app."], "any model · one endpoint · Mojo + MAX", "1 cmd", delay=.1)
+card("console", "omxconsole", "app · local AI", ["Your GPU as a private, OpenAI-compatible", "model server, rebuilt in Mojo with omxcode:", "the AI supplier for every app."], "written in omxcode · building now", "1 cmd", delay=.1)
 card("core", "omxcore", "the engine", ["SQL on your CPU and your GPU,", "over the files you already have.", "NVIDIA, AMD and Apple Silicon."], "22 TPC-H queries, SF10 · DuckDB 5.08 s", "3.15 s", w=420, h=328, delay=.2)
 card("code", "omxcode", "the framework", ["Write an app once in Mojo: native", "on Linux, the web and the Mac,", "and an agent can drive it."], "Linux · Web · Mac · phones next", None, w=420, h=328, delay=.3)
 card("qua", "omxqua", "the look", ["Google's solid surfaces, Apple's", "springs, touch first. The look of", "every app here, this page too."], "MIT · phone and web", None, w=420, h=328, delay=.4)
@@ -229,6 +229,6 @@ side("map", "GitAway", "Python · FastHTML", "Plan a trip, share it, let friends
 side("house", "Abode", "TypeScript", "One home for all your coding agents, with local voice.")
 label("label-apps.svg", "01", "The apps", "What you open. Both run on the GPU you already own.")
 label("label-tech.svg", "02", "Under the hood", "Three technologies, all in Mojo, each usable on its own.")
-label("label-also.svg", "03", "Also building", "Python and TypeScript, for the web.")
-label("label-research.svg", "04", "Research", "Experiments, written up with what worked and what didn't.")
+label("label-also.svg", "04", "Also building", "Python and TypeScript, for the web.")
+label("label-research.svg", "03", "Research", "Experiments, written up with what worked and what didn't.")
 research("pert", "omxpert dispatch", ["Only the experts you need. Learn which experts of a", "mixture-of-experts model your work uses, predict them,", "load only those. gpt-oss-120b on a 16 GB Mac, unquantized."], "1.04 → 2.96 tok/s · +11 pts personal profile · llama.cpp patch · MIT")

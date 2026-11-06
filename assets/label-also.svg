@@ -7,4 +7,4 @@ text{font-family:G,system-ui,sans-serif;fill:#ededef} .m{font-family:GM,ui-monos
 @keyframes bob{50%{transform:translateY(-6px)}}
 @keyframes bubble{0%{opacity:0;transform:translateY(0)}15%{opacity:1}80%{opacity:.9}100%{opacity:0;transform:translateY(var(--h,-120px))}}
 @media (prefers-reduced-motion:reduce){*{animation:none!important}}
-</style><text class='m' x='4' y='30' font-size='13' letter-spacing='2.4' style='fill:#8b8b93'>03  ·  ALSO BUILDING</text><text x='4' y='62' font-size='15' style='fill:#8b8b93'>Python and TypeScript, for the web.</text></svg>
+</style><text class='m' x='4' y='30' font-size='13' letter-spacing='2.4' style='fill:#8b8b93'>04  ·  ALSO BUILDING</text><text x='4' y='62' font-size='15' style='fill:#8b8b93'>Python and TypeScript, for the web.</text></svg>
